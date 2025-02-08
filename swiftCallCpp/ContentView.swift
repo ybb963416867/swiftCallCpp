@@ -19,7 +19,7 @@ struct ContentView: View {
                     Text("Hello, world!")
                     
                     NavigationLink(destination: CppView()) {
-                        Text("opgl 使用")
+                        Text("子模块中 c++ swift 互相调用")
                             .padding()
                             .background(Color.blue)
                             .foregroundColor(.white)

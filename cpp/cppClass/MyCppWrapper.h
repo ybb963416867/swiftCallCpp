@@ -11,14 +11,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol MyCppWrapperDelegate <NSObject>
 - (void)cppDidCallSwift;
+- (void)sendDataInterface;
 @end
 
-@interface MyCppWrapper : NSObject
+@protocol MyCppWrapperInterface <NSObject>
+
+- (void)sayHello;
+- (void)sendData;
+
+@end
+
+@interface MyCppWrapper : NSObject <MyCppWrapperInterface>
 
 @property (nonatomic, weak) id<MyCppWrapperDelegate> delegate;
 
 - (instancetype)init;
-- (void)sayHello;
 
 @end
 

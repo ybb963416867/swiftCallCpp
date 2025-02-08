@@ -9,6 +9,7 @@
 #import "MyCppWrapper.h"
 //#import "MyCppClass.hpp"
 #include "MyCppClass.hpp"
+#include "connection.hpp"
 
 @implementation MyCppWrapper {
     MyCppClass *_cppInstance;
@@ -38,6 +39,16 @@
     __weak id<MyCppWrapperDelegate> weakDelegate = self.delegate;
     if ([weakDelegate respondsToSelector:@selector(cppDidCallSwift)]) {
         [weakDelegate cppDidCallSwift];
+    }
+}
+
+
+- (void)sendData {
+    sendData();
+    
+    __weak id<MyCppWrapperDelegate> weakDelegate = self.delegate;
+    if ([weakDelegate respondsToSelector:@selector(sendDataInterface)]) {
+        [weakDelegate sendDataInterface];
     }
 }
 

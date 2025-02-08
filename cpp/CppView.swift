@@ -16,10 +16,9 @@ public struct CppView : View {
                 ScrollView {
                     VStack{
                         Button(action: {
-                            let wrapper = MyCppWrapper()
-                            let swiftHander = SwiftHandler()
-                            wrapper.delegate = swiftHander
-                            wrapper.sayHello()
+                            let swiftHander = SwiftHandler.instance
+                            swiftHander.sayHello()
+                            swiftHander.sendData()
                         }, label: {
                             Text("调用c++")
                                 .padding()
